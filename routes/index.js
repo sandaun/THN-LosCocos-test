@@ -8,7 +8,7 @@ const rooms = require('../assets/rooms');
 router.get('/', (req, res, next) => {
   const adults = 1;
   const children = 1;
-  // const pax = adults + children;
+  const pax = adults + children;
   const todayDate = new Date();
   const currentDateFormat = `${todayDate.getFullYear()}-${todayDate.getMonth() + 1}-${todayDate.getDate()}`;
   const tomorrowDateFormat = `${todayDate.getFullYear()}-${todayDate.getMonth() + 1}-${(todayDate.getDate() + 1)}`;
@@ -22,6 +22,7 @@ router.get('/', (req, res, next) => {
     adults,
     children,
     roomsSortedByPrice,
+    pax,
   });
 });
 
@@ -44,6 +45,7 @@ router.get('/modify', async (req, res, next) => {
     adults,
     children,
     roomsSortedByPrice,
+    pax,
   });
 });
 

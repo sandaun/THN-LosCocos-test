@@ -181,7 +181,7 @@
             <div class="card">
                 <h2>Reservation Summary</h2>
                 <div class="clearfix">
-                    <h5 class="pull-left">Mini Dreamy Room</h5>
+                    <h5 class="pull-left"><%= roomsSortedByPrice[0].name %></h5>
                     <div class="form-group pull-right">
                         <select class="pull-right" id="rooms">
                             <option>1</option>
@@ -211,7 +211,7 @@
 
                     <div class="card-content">
                         <p class="main">Reservation date</p>
-                        <p class="base">From <strong><span id="checkin-summary">4/7/2018</span></strong> to <strong id="checkout-summary">15/7/2018</strong></p>
+                        <p class="base">From <strong><span id="checkin-summary"><%= currentDateFormat %></span></strong> to <strong id="checkout-summary"><%= tomorrowDateFormat %></strong></p>
                     </div>
 
                     <div class="card-content">
@@ -226,7 +226,7 @@
                             <p class="base"><a href="#">Price details ></a></p>
                         </div>
                         <div class="right pull-right">
-                            <p class="main">€350</p>
+                            <p class="main">€<%= pax * roomsSortedByPrice[0].price %></p>
                         </div>
                     </div>
 
