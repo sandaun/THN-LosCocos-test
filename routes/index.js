@@ -6,14 +6,14 @@ const rooms = require('../assets/rooms');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  // console.log(rooms[0].price, 'this is rooms');
   const adults = 1;
   const children = 1;
+  // const pax = adults + children;
   const todayDate = new Date();
   const currentDateFormat = `${todayDate.getFullYear()}-${todayDate.getMonth() + 1}-${todayDate.getDate()}`;
   const tomorrowDateFormat = `${todayDate.getFullYear()}-${todayDate.getMonth() + 1}-${(todayDate.getDate() + 1)}`;
-  const roomsSortedByPrice = rooms.sort((a, b) => ((a.price > b.price) ? 1 : -1));
-  // console.log(roomsSortedByPrice, 'by price')
+  const roomsByCapacity = rooms.filter( room => room.people <= 2);
+  const roomsSortedByPrice = roomsByCapacity.sort((a, b) => ((a.price > b.price) ? 1 : -1));
   res.render('index', {
     title: 'THN',
     copyright: '© 2019 THN',
@@ -31,11 +31,11 @@ router.get('/modify', async (req, res, next) => {
   } = req.query;
   const currentDateFormat = checkin;
   const tomorrowDateFormat = checkout;
-  // const adultsNumber = parseFloat(adults);
-  // const childrenNumber = parseFloat(children);
-  // const people = adultsNumber + childrenNumber;
-  // const accommodationSelection = await accommodations.filter( accommodation => { return accommodation.people >= people});
-  // await sortAccommodations(accommodationSelection);
+  const adultsToNumber = parseInt(adults, 10);
+  const childrenToNumber = parseInt(children, 10);
+  const pax = (adultsToNumber + childrenToNumber);
+  const roomsByCapacity = await rooms.filter( room => room.people >= pax);
+  const roomsSortedByPrice = await roomsByCapacity.sort((a, b) => ((a.price > b.price) ? 1 : -1));
   res.render('index', {
     title: 'THN',
     copyright: '© 2019 THN',
@@ -43,6 +43,7 @@ router.get('/modify', async (req, res, next) => {
     tomorrowDateFormat,
     adults,
     children,
+    roomsSortedByPrice,
   });
 });
 
