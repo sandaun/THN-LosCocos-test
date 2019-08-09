@@ -1,3 +1,9 @@
+// In a real database I would design a model with the items described below. Each item would 
+// have the appropiate type of data. This would be used to create, store, update or delete any kind
+// of data we would use to show the information on the frontend part.
+// In order to communicate the frotend and the backend I would use a service (with axios for example)
+// that would manage this communciation between back and front.
+
 const rooms = [
 
   {
