@@ -72,7 +72,7 @@
 
                 <div class="form-group">
                     <div class="input-group date" data-date-format="dd/mm/yyyy">
-                        <input id="checkin" type="text" class="form-control" name="checkin" placeholder="Check in" value=<%=currentDateFormat%>>
+                        <input id="checkin" type="text" class="form-control" name="checkin" placeholder="Check in" value=<%=checkin%>>
                         <div class="input-group-addon" >
                             <span class="glyphicon glyphicon-calendar"></span>
                         </div>
@@ -81,7 +81,7 @@
 
                 <div class="form-group">
                     <div class="input-group date" data-date-format="dd/mm/yyyy">
-                        <input id="checkout" type="text" class="form-control" name="checkout" placeholder="Checkout" value=<%=tomorrowDateFormat%>>
+                        <input id="checkout" type="text" class="form-control" name="checkout" placeholder="Checkout" value=<%=checkout%>>
                         <div class="input-group-addon" >
                             <span class="glyphicon glyphicon-calendar"></span>
                         </div>
@@ -211,7 +211,7 @@
 
                     <div class="card-content">
                         <p class="main">Reservation date</p>
-                        <p class="base">From <strong><span id="checkin-summary"><%= currentDateFormat %></span></strong> to <strong id="checkout-summary"><%= tomorrowDateFormat %></strong></p>
+                        <p class="base">From <strong><span id="checkin-summary"><%= checkin %></span></strong> to <strong id="checkout-summary"><%= checkout %></strong></p>
                     </div>
 
                     <div class="card-content">
@@ -229,10 +229,17 @@
                             <p class="main">€<%= pax * roomsSortedByPrice[0].price %></p>
                         </div>
                     </div>
+                    
+                    <form id="promo" action="/save/promo" method="GET">
+                        <div class="center-title">
+                            <p class="main"> Promo Code </p>
+                        </div>
+                        <div class="center-input">
+                            <input id="promo" type="text" name="promo">
+                        </div>
+                        <button type="submit" href="#" class="btn btn-primary btn-group-justified">Save</button>
+                    </form>
 
-                    <a href="#" class="btn btn-primary btn-group-justified">
-                        Save
-                    </a>
                 </div>
             </div>
 

@@ -38,3 +38,14 @@ p {
   margin-left: 0;
   margin-right: 0;
 }
+
+.center-title {
+  display: flex;
+  justify-content: center;
+}
+
+.center-input {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}

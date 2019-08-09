@@ -3,7 +3,7 @@
 It’s a web APP to manage hotel room reservations
 
 ## Content
-
+  A small app to make reservations for your hotel, including promo codes feature to get discounts on regular rates.
 
 ## Usage
 
